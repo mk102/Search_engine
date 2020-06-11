@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<HTML lang="jp">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" href="/static/img/favicon.png" >
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/static/main.css">
+    <!-- <link rel="stylesheet" href="{{ url_for('static',filename='main.css')}}"> -->
+
+    <title>企業情報検索システム</title>
+</head>
+
+<body onload="initial();">
+    <div class="container-fluid">
+        <div id="title">
+            <h1>企業情報検索システム</h1>
+        </div>
+    </div>
+
+    <div id="app">
+        <div id="search_con">
+            <input v-model="searchword" placeholder="検索したい業種" id="sbox">
+            <!-- <p>Message is: {{ searchword }}</p> -->
+            <button id="sbtn" v-on:click="search()">検索</button>
+            <p>検索ワード: {{ word }}</p>
+
+            <h3 id="search_result">検索結果</h3>
+        </div>
+        <div v-for="(result, index) in results" id="search_content">
+            <div id="search_title">
+                <div id="search_no">{{ index + 1 }}</div>
+                <button class="btn btn-default" data-toggle="modal" v-bind:data-target="'#my-detail-modal' + index" v-bind:data-whatever="index" id="search_btn">{{ result.body.name }}</button>
+            </div>
+        </div>
+
+        <template v-for="(result, index) in results">
+            <div v-bind:id="'my-detail-modal' + index" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="detail-modal-label" aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="detail-modal-label">書籍詳細</h5>
+                            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <table class="table">
+                                <tbody>
+                                    <tr>
+                                        <th class="m_title">書名</th>
+                                        <td class="m_body">{{ result.body.title }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>詳細</th>
+                                        <td>{{ result.body.description }}</td>
+                                    </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </template>
+
+
+    </div>
+
+    <script type="text/javascript" src="/static/js/jquery-3.3.1.slim.min.js"></script>
+    <script src="/static/js/popper.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+    <script src="/static/js/axios.js"></script>
+    <script src="/static/js/vue.js"></script>
+    <script src="/static/main.js"></script>
+</body>

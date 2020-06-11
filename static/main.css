@@ -1,0 +1,119 @@
+html {
+    height:100%
+}
+
+body {
+	font-family: YuGothic, 'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro', 'メイリオ', Meiryo, Arial, Sans-Serif;
+	font-size: 15px;
+	line-height: 1.6;
+	color: #333;
+	margin:0;
+	padding:0;
+	height:100%;
+	width:100%;
+}
+
+h1 {
+    position:relative;
+    left:30px;
+}
+
+#sbox{
+    position:relative;/*フォームの絶対位置*/
+    top:10px;
+    outline:0;/*クリック時の青い枠線消す*/
+    height:30px;/*検索ボックスの高さ*/
+    border-radius:2px 0 0 2px;/*検索ボックスの角を丸める*/
+    background:#eee;/*検索ボックスの背景カラー*/
+}
+
+#sbtn{
+    width:50px;/*検索ボタンの横幅*/
+    height:35px;/*検索ボタンの縦幅*/
+    position:relative;/*検索ボタンの絶対位置*/
+    left:-5px;/*検索ボタンの位置調整*/
+    top:11px;
+    border-radius:0 2px 2px 0;/*検索ボタンの角を丸める*/
+    background:#682981;/*検索ボタンの背景カラー*/
+    border:none;/*検索ボタンの枠線を消す*/
+    color:#fff;/*検索ボタンのテキストカラー*/
+    font-weight:bold;/*検索ボタンのテキスト太字*/
+    font-size:16px;/*検索ボタンのフォントサイズ*/
+}
+
+#sbtn:hover{
+    color:#666;/*検索ボタンマウスオーバー時のフォントカラー*/
+}
+
+div#title {
+	display:flex;
+	background-color: #682981;
+	color: #FFFFFF;
+}
+
+div#contents {
+	display:flex;
+	background-color: #c0c0c0;
+}
+
+
+/* Tab
+================================================== */
+.tabContents {
+	width: 100%;
+	padding: 20px;
+	border: 1px solid #007db9;
+	border-radius: 10px;
+	box-shadow: 4px 4px 4px rgba(0,0,0,0.4);
+}
+
+#search_con {
+    position:relative;
+    left:30px;
+}
+
+#search_no {
+    position:relative;
+    left:30px;
+}
+#search_btn {
+    position:relative;
+    left:30px;
+	display: inline-block;
+	padding: 0.5em 1em;
+	text-decoration: none;
+	background: #f7f7f7;
+	border-left: solid 6px #682981;
+	color: #682981;
+	font-weight: bold;
+	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	text-align: left;
+	width: 50%;
+}
+
+#search_btn:active {
+	box-shadow: inset 0 0 2px rgba(128, 128, 128, 0.1);
+	transform: translateY(2px);
+}
+
+/* Modal
+================================================== */
+h5 {
+	font-weight: bold;
+	background-color: #CED8F6;
+	padding: 3px;
+	width: 100%;
+}
+th.m_title {
+	width:100px;
+	white-space: nowrap;
+}
+th {
+	color: #045FB4;
+}
+td.m_body {
+}
