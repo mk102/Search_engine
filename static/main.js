@@ -12,15 +12,18 @@ Vue.component( 'detail-modal', {
 var app = new Vue({
   el: '#app',
   data: {
-    searchword: '',
-    word: '',
+    s_g_word: '',
+    s_n_word: '',
+    n_word: '',
+    g_word: '',
     results: [],
     showContent: false
   },
   methods: {
     search: function () {
-      this.word = this.searchword;
-      let url = "/search?s_word=" + this.word;
+      this.g_word = this.s_g_word;
+      this.n_word = this.s_n_word;
+      let url = "/search?s_g_word=" + this.g_word + "&s_n_word=" + this.n_word;
       console.log(url);
       axios.get(url).then(response => {
         let results_old = this.results
@@ -30,13 +33,6 @@ var app = new Vue({
         }
         console.log(this.results);
        });
-    },
-    openModal: function(index){
-      console.log(index);
-      this.showContent = true
-    },
-    closeModal: function(){
-      this.showContent = false
     }
   }
 })

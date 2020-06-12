@@ -51,14 +51,42 @@ def search():
 	検索
 	'''
 	# パラメータからワードを取得
-	s_word = request.args.get('s_word', default = None)
+	g_word = request.args.get('s_g_word', default = None)
+	n_word = request.args.get('s_n_word', default = None)
 	es = Elasticsearch(['http://localhost:9200/'])
 
 	results = []
 	params = {
 		'size': 10000
 	}
-	for i in es.search(index = "companies", body = {"query": {"match": {"gyousyu":s_word}}}, params=params)["hits"]["hits"]:
+	'''
+	body = {
+		"query": {"match": {"gyousyu":g_word}}
+	}
+	'''
+	match_list = [{
+		"match":{
+			n:i
+		}
+	} for i, n in zip([g_word, n_word], ["gyousyu", "name"]) if i != '']
+
+	print(g_word == '')
+	print(n_word == '')
+
+	body = {
+		"query": {
+			"bool": {
+				"must": match_list
+			}
+		}
+	}
+	#print(body)
+	old_id = []
+	for i in es.search(index = "companies", body = body, params=params)["hits"]["hits"]:
+		if i["_id"] in old_id:
+			continue
+		#print(old_id)
+		old_id.append(i["_id"])
 		body = copy.deepcopy(i["_source"])
 		score = i['_score']
 		result = {'body': body, 'score': score}

@@ -24,7 +24,8 @@
 
     <div id="app">
         <div id="search_con">
-            <input v-model="searchword" placeholder="検索したい業種" id="sbox">
+            <input v-model="s_n_word" placeholder="検索したい企業名" id="sbox">
+            <input v-model="s_g_word" placeholder="検索したい業種" id="sbox">
             <!-- <p>Message is: {{ searchword }}</p> -->
             <button id="sbtn" v-on:click="search()">検索</button>
             <p id="search_now">検索ワード: {{ word }}</p>
