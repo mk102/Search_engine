@@ -7,15 +7,15 @@ Vue.component( 'detail-modal', {
     data: function () {
         return this.results[this.index];
     }
-});
-
+} );
 
 var app = new Vue({
   el: '#app',
   data: {
     searchword: '',
     word: '',
-    results: []
+    results: [],
+    showContent: false
   },
   methods: {
     search: function () {
@@ -30,6 +30,13 @@ var app = new Vue({
         }
         console.log(this.results);
        });
+    },
+    openModal: function(index){
+      console.log(index);
+      this.showContent = true
+    },
+    closeModal: function(){
+      this.showContent = false
     }
   }
 })

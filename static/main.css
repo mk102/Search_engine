@@ -29,10 +29,10 @@ h1 {
 
 #sbtn{
     width:50px;/*検索ボタンの横幅*/
-    height:35px;/*検索ボタンの縦幅*/
+    height:32px;/*検索ボタンの縦幅*/
     position:relative;/*検索ボタンの絶対位置*/
-    left:-5px;/*検索ボタンの位置調整*/
-    top:11px;
+    left:-4.6px;/*検索ボタンの位置調整*/
+    top:9.5px;
     border-radius:0 2px 2px 0;/*検索ボタンの角を丸める*/
     background:#682981;/*検索ボタンの背景カラー*/
     border:none;/*検索ボタンの枠線を消す*/
@@ -56,7 +56,10 @@ div#contents {
 	background-color: #c0c0c0;
 }
 
-
+p#search_now {
+    position:relative;/*フォームの絶対位置*/
+    top:10px;
+}
 /* Tab
 ================================================== */
 .tabContents {
@@ -104,7 +107,8 @@ div#contents {
 ================================================== */
 h5 {
 	font-weight: bold;
-	background-color: #CED8F6;
+	background-color: #682981;
+	color: #FFFFFF;
 	padding: 3px;
 	width: 100%;
 }
@@ -113,7 +117,7 @@ th.m_title {
 	white-space: nowrap;
 }
 th {
-	color: #045FB4;
+	color: #682981;
 }
 td.m_body {
 }

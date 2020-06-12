@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="shortcut icon" href="/static/img/favicon.png" >
     <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
     <link rel="stylesheet" href="/static/main.css">
     <!-- <link rel="stylesheet" href="{{ url_for('static',filename='main.css')}}"> -->
 
@@ -26,7 +27,7 @@
             <input v-model="searchword" placeholder="検索したい業種" id="sbox">
             <!-- <p>Message is: {{ searchword }}</p> -->
             <button id="sbtn" v-on:click="search()">検索</button>
-            <p>検索ワード: {{ word }}</p>
+            <p id="search_now">検索ワード: {{ word }}</p>
 
             <h3 id="search_result">検索結果</h3>
         </div>
@@ -42,28 +43,54 @@
                 <div class="modal-dialog modal-lg" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="detail-modal-label">書籍詳細</h5>
+                            <h5 class="modal-title" id="detail-modal-label">企業情報詳細</h5>
                             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
+
                         <div class="modal-body">
                             <table class="table">
                                 <tbody>
                                     <tr>
-                                        <th class="m_title">書名</th>
-                                        <td class="m_body">{{ result.body.title }}</td>
+                                        <th class="m_title">企業名</th>
+                                        <td class="m_body">{{ result.body.name }}</td>
                                     </tr>
                                     <tr>
-                                        <th>詳細</th>
-                                        <td>{{ result.body.description }}</td>
+                                        <th>業種</th>
+                                        <td>{{ result.body.gyousyu }}</td>
                                     </tr>
-                            </table>
-                        </div>
+                                    <tr>
+                                        <th>売上高</th>
+                                        <td>{{ result.body.uriage }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>営業利益</th>
+                                        <td>{{ result.body.eigyo_rieki }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>経常利益</th>
+                                        <td>{{ result.body.keizyo_rieki }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>純利益</th>
+                                        <td>{{ result.body.zyun_rieki }}</td>
+                                    </tr>
+                                </table>
+                        </div>  <!-- eod of modal-body -->
+
                     </div>
                 </div>
             </div>
         </template>
+
+
+
+
+
+
+
+
 
 
     </div>
