@@ -24,13 +24,22 @@
 
     <div id="app">
         <div id="search_con">
-            <input v-model="s_n_word" placeholder="検索したい企業名" id="sbox">
+            <input v-model="s_n_word" placeholder="検索したい企業" id="sbox">
             <input v-model="s_g_word" placeholder="検索したい業種" id="sbox">
             <!-- <p>Message is: {{ searchword }}</p> -->
             <button id="sbtn" v-on:click="search()">検索</button>
-            <p id="search_now">検索ワード: {{ word }}</p>
 
-            <h3 id="search_result">検索結果</h3>
+            <p id="search_now">
+                &nbsp;&nbsp;&nbsp;&nbsp;企業キーワード: {{ n_word }}<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;業種キーワード: {{ g_word }}
+            </p>
+
+
+            <div id="search_result">
+                <h3 id="search_result">検索結果</h3>
+
+                <button id="dlbtn" v-on:click="csvdl()">ダウンロード</button>
+            </div>
         </div>
         <div v-for="(result, index) in results" id="search_content">
             <div id="search_title">

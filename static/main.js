@@ -20,6 +20,11 @@ var app = new Vue({
     showContent: false
   },
   methods: {
+    csvdl: function () {
+        axios.get("/dlcsv").then(response => {
+            console.log(response)
+        })
+    },
     search: function () {
       this.g_word = this.s_g_word;
       this.n_word = this.s_n_word;

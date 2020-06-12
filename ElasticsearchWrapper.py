@@ -13,6 +13,7 @@ def data_submission():
 		page = json.loads(line)
 		es.index(index = "companies", doc_type = "_doc", body = page)
 
+
 def create_pages_index(es: Elasticsearch):
 	"""
 	Elasticsearchにpagesインデックスを作成する
@@ -45,5 +46,7 @@ def create_pages_index(es: Elasticsearch):
 		}
 	}
 	})
+
+
 if __name__ == '__main__':
 	data_submission()

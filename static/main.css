@@ -41,6 +41,24 @@ h1 {
     font-size:16px;/*検索ボタンのフォントサイズ*/
 }
 
+#dlbtn:hover{
+    color:#666;/*検索ボタンマウスオーバー時のフォントカラー*/
+}
+
+#dlbtn{
+    width:120px;/*検索ボタンの横幅*/
+    height:32px;/*検索ボタンの縦幅*/
+    position:relative;/*検索ボタンの絶対位置*/
+    left:20.0px;/*検索ボタンの位置調整*/
+    top:2px;
+    border-radius:0 2px 2px 0;/*検索ボタンの角を丸める*/
+    background:#682981;/*検索ボタンの背景カラー*/
+    border:none;/*検索ボタンの枠線を消す*/
+    color:#fff;/*検索ボタンのテキストカラー*/
+    font-weight:bold;/*検索ボタンのテキスト太字*/
+    font-size:16px;/*検索ボタンのフォントサイズ*/
+}
+
 #sbtn:hover{
     color:#666;/*検索ボタンマウスオーバー時のフォントカラー*/
 }
@@ -54,6 +72,10 @@ div#title {
 div#contents {
 	display:flex;
 	background-color: #c0c0c0;
+}
+
+div#search_result{
+    display:flex;
 }
 
 p#search_now {

@@ -45,6 +45,11 @@ def index(name=None):
 	return render_template("index.html")
 
 
+@app.route("/csvdl")
+def csvdl():
+	return "csvtest"
+
+
 @app.route("/search")
 def search():
 	'''
@@ -86,6 +91,7 @@ def search():
 		if i["_id"] in old_id:
 			continue
 		#print(old_id)
+
 		old_id.append(i["_id"])
 		body = copy.deepcopy(i["_source"])
 		score = i['_score']
